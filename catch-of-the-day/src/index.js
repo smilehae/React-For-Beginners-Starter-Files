@@ -4,6 +4,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import StorePicker from './components/StorePicker';
 import App from './components/App';
-
+import Router from "./components/Router"
 import './css/style.css';
-render(<App/>,document.querySelector('#main')); //이게 react-dom의 render 메소드임
+render(<Router/>,document.querySelector('#main')); //이게 react-dom의 render 메소드임
