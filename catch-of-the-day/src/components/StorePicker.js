@@ -7,14 +7,16 @@ class StorePicker extends React.Component{
     //storePickekr이 만들어지기 전에 실행
 
     //이 방법은 ES6 이전의 방식이다.
-    // constructor(){
-    //     super();
-    //     console.log("Gonna crate a component");
-    //     //여기 안에 메소드를 bind할 수 있다.
-    //     //메소드를 override해서 bind해준다. this를 인스턴스로 전해준다.
-    //     //이게 없으면, goToStore에서 this가 undefined이다.
-    //     this.goToStore = this.goToStore.bind(this);
-    // }
+    /*
+    constructor(){
+        super();
+        console.log("Gonna crate a component");
+        //여기 안에 메소드를 bind할 수 있다.
+        //메소드를 override해서 bind해준다. this를 인스턴스로 전해준다.
+        //이게 없으면, goToStore에서 this가 undefined이다.
+        this.goToStore = this.goToStore.bind(this);
+    }
+    */
     myInput  = React.createRef();
     //이 안에 것을 표현할 것임
     //한번에 1개의 element만 리턴할 수 있음.
@@ -26,8 +28,10 @@ class StorePicker extends React.Component{
         //form이 submit되는 것을 멈추기
         e.preventDefault();
         //2. 인풋 값을 받아오기
-        console.log(this);
-        //3. 그 위치로 /store/값 으로 바꾸기
+        const storeName = this.myInput.current.value;
+        //3. 그 위치로 /store/값 으로 바꾸기 : react router에 접근해야함!
+        this.props.history.push(`/store/${storeName}`);
+
     }
     //컴포넌트가 페이지에 추가될때 사용된다
     componentDidMount(){
@@ -35,19 +39,20 @@ class StorePicker extends React.Component{
     }
     render(){
         return ( 
-        <React.Fragment>
-            {/* <p>Fish!</p> */}
-            <form className="store-selector" onSubmit={this.goToStore}>
-                <h2>Please Enter A Store</h2>
-                <input 
-                    type="text" required 
-                    placeholder="Store Name" 
-                    defaultValue={getFunName()} 
-                    ref={this.input}
-                    />
-                <button type="submit">Visit store</button>
-            </form>
-        </React.Fragment>
+        
+        <form className="store-selector" onSubmit={this.goToStore}>
+            <h2>Please Enter A Store</h2>
+            <input 
+                type="text"
+                ref={this.myInput}
+                required 
+                placeholder="Store Name" 
+                defaultValue={getFunName()} 
+                
+                />
+            <button type="submit">Visit store</button>
+        </form>
+        
         )
     }
 }
