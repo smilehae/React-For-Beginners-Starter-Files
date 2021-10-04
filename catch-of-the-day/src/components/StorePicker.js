@@ -30,6 +30,8 @@ class StorePicker extends React.Component{
         //2. 인풋 값을 받아오기
         const storeName = this.myInput.current.value;
         //3. 그 위치로 /store/값 으로 바꾸기 : react router에 접근해야함!
+        //storePicker이 Route의 자식으로 붙어있고, 따라서 props의 history에 push라는 값에 접근할 수 있다
+        //이 push라는 것은 url상의 주소 뒤에 다른 주소를 덧붙여 주는 라우터 메소드이다.
         this.props.history.push(`/store/${storeName}`);
 
     }
