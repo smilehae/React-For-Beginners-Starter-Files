@@ -4,9 +4,8 @@ class Order extends React.Component{
     render(){
         return (
             <div className="order">
-            order!!
-        </div>
-            
+                order!!
+            </div>
         )
     }
 }

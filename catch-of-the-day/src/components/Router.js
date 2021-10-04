@@ -9,6 +9,7 @@ const Router=()=>(
     <BrowserRouter>
         <Switch>
             <Route exact path="/" component={StorePicker}/>
+            {/*App의 props의 match의 params에 storeId = 123으로 들어있다!  */}
             <Route exact path="/store/:storeId" component={App}/>
             <Route component={NotFound}/>
         </Switch>

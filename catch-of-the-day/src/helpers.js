@@ -95,3 +95,7 @@ export function getFunName() {
 
   return `${rando(adjectives)}-${rando(adjectives)}-${rando(nouns)}`;
 }
+
+export function sayHi(){
+  return `hi`;
+}
